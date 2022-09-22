@@ -24,9 +24,9 @@ class Cabecera(models.Model):
 
 
 class PagoDeuda(models.Model):
-    abono = models.DecimalField(default=0, max_digits=4, decimal_places=2, verbose_name='Pago')
+    abono = models.DecimalField(default=0.00, max_digits=9, decimal_places=2, verbose_name='Pago')
     fecha_ab = models.DateField('Fecha de pago',default=timezone.now)
-    deuda = models.ForeignKey(Cabecera,on_delete=models.CASCADE)
+    deuda = models.ForeignKey(Cabecera,on_delete=models.CASCADE,null=True,blank=True)
 
 
     def __str__(self):

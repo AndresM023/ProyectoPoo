@@ -9,28 +9,6 @@ class DetalleListView(ListView):
     context_object_name = 'cobro'
     model = Cabecera
 
-    def get_queryset(self):
-        query = self.request.GET.get("query")
-        print(query)
-        if query:
-            return self.model.objects.filter(nombre__icontains=query)
-        else:
-            return self.model.objects.all()
-
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['url_anterior'] = '/'
-        context['listar_url'] = '/menu'
-        context['titulo'] = 'Cuentas por Cobrar'
-        context['query'] = self.request.GET.get("query") or ""
-        return context
-
-
-class DetalleListView2(ListView):
-    template_name = "cobro.html"
-    context_object_name = 'deuda'
-    model = PagoDeuda
 
     def get_queryset(self):
         query = self.request.GET.get("query")
@@ -48,8 +26,6 @@ class DetalleListView2(ListView):
         context['titulo'] = 'Cuentas por Cobrar'
         context['query'] = self.request.GET.get("query") or ""
         return context
-
-
 
 
 class CrearCuenta(CreateView):
@@ -72,13 +48,14 @@ class CrearCuenta(CreateView):
 class CobroDeuda(CreateView):
     model = PagoDeuda
     form_class = PagoDeudaForm
-    success_url = reverse_lazy('cuenta_cobrar:cobro')
     template_name = "parte/cobro_deuda.html"
+    success_url = reverse_lazy('cuenta_cobrar:cobro')
+
 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['action_save'] = '/cuenta_cobrar/crearcuenta/'
+        context['action_save'] = '/cuenta_cobrar/crear/'
         context['titulo'] = 'Sección para realizar el pago'
         context['url_anterior'] = '/cuenta_cobrar/cobro'
         context['listar_url'] = '/cuenta_cobrar/cobro'
