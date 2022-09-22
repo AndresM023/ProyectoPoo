@@ -1,0 +1,23 @@
+{% extends 'formulario.html' %}
+{% load static %}
+
+{% block headcss %}
+    <link rel="stylesheet" href="{% static "css/diseño.css" %}">
+{% endblock %}
+
+
+
+    <table class="table table-hover table-bordered">
+            {% block columns %}
+               <thead class="table-dark">
+                 <tr>
+                   <th scope="col">#</th>
+                   <th scope="col">Nombre</th>
+                   <th scope="col">Fecha de Inicio del cobro</th>
+                   <th scope="col"> Deuda</th>
+                   <th scope="col"> Cuota Mensual </th>
+                   <th> </th>
+                 </tr>
+               </thead>
+            {% endblock %}
+    </table>
