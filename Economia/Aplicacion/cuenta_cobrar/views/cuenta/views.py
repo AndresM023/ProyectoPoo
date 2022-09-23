@@ -10,12 +10,15 @@ class DetalleListView(ListView):
     model = Cabecera
 
 
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['url_anterior'] = '/'
         context['listar_url'] = '/menu'
         context['titulo'] = 'Cuentas por Cobrar'
         context['registro'] = PagoDeuda.objects.filter()
+
         return context
 
 
