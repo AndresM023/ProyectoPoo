@@ -5,7 +5,7 @@ from Aplicacion.cuenta_cobrar.forms import CabeceraForm,PagoDeudaForm
 
 
 class DetalleListView(ListView):
-    template_name = "cobro.html"
+    template_name = "main_cobro.html"
     context_object_name = 'cobro'
     model = Cabecera
 
@@ -21,7 +21,7 @@ class DetalleListView(ListView):
 
 class CrearCuenta(CreateView):
     model = Cabecera
-    template_name = "parte/form.html"
+    template_name = "pantallas/registros.html"
     success_url = reverse_lazy('cuenta_cobrar:cobro')
     form_class = CabeceraForm
 
@@ -39,7 +39,7 @@ class CrearCuenta(CreateView):
 class CobroDeuda(CreateView):
     model = PagoDeuda
     form_class = PagoDeudaForm
-    template_name = "parte/cobro_deuda.html"
+    template_name = "pantallas/pago_deuda.html"
     success_url = reverse_lazy('cuenta_cobrar:cobro')
 
 
@@ -57,7 +57,7 @@ class CobroDeuda(CreateView):
 
 class EliminarView(DeleteView):
     model = Cabecera
-    template_name = "parte/eliminar.html"
+    template_name = "pantallas/eliminar.html"
     success_url = reverse_lazy('cuenta_cobrar:cobro')
 
     def get_context_data(self, **kwargs):

@@ -2,10 +2,6 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 
-meses_diferidos = [
-    ('3 meses','3 meses'),('6 meses','6 meses'),('9 meses','9 meses'),('12 meses','12 meses'),('24 meses','24 meses')
-]
-
 
 class Cabecera(models.Model):
     nombre= models.CharField(max_length=200, unique=True)
