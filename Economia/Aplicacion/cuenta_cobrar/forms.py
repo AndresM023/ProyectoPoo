@@ -10,12 +10,12 @@ class CabeceraForm(ModelForm):
         model = Cabecera
         fields = '__all__'
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-control '}),
-            'deuda': forms.NumberInput(attrs={'class':'form-control'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control ','id':'nom'}),
+            'deuda': forms.NumberInput(attrs={'class':'form-control','id':'deu'}),
             'fecha_cobro': forms.DateInput(format=('%d/%m/%Y'),
                                     attrs={'class': 'form-control', 'placeholder': 'Seleccione una fecha', 'type': 'date'}),
-
-            'cuota_mensual':forms.NumberInput(attrs={'class':'form-control','readonly':True})
+            'meses_a_diferir': forms.NumberInput(attrs ={'class':'form-control','id':'mes'}),
+            'cuota_mensual':forms.NumberInput(attrs={'class':'form-control','readonly':True,'id':'cuotamen'}),
         }
 
 

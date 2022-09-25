@@ -7,7 +7,7 @@
 
 {% block main %}
 
-    <form class="container text-dark  crearcobro" method="post" action="{{ action_save }}" enctype="multipart/form-data">
+    <form class="container text-dark  crearcobro" method="post" action="{{ action_save }}" enctype="multipart/form-data" name ="registro">
        <div class="card">
             <div class="card-header bg-primary">
                 <h3 class=" text-center text-white">
@@ -21,9 +21,15 @@
 
        </div>
         {% block boton %}
+            <div>
+            <button type="button"  class="btn btn-success btn-lg me-md-5" id="btnCalcular" >
+                    Calcular
+            </button>
+            </div>
         <div class="mx-auto">
                <div class="col cent">
-                     <button type="submit" class="btn btn-success btn-lg me-md-5" onclick="alert('Registro guardado con éxito.')" >
+                     <button type="submit" class="btn btn-success btn-lg me-md-5"
+                             onclick="alert('Registro guardado con éxito')">
                          Guardar registro
                      </button>
                     <a href="{{ listar_url }}" class="btn btn-danger btn-lg">
@@ -32,6 +38,9 @@
                </div>
         </div>
         {% endblock %}
+
     </form>
+
+    <script src = {% static "js/validacion.js"  %}></script>
 
 {% endblock %}
