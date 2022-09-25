@@ -24,7 +24,6 @@ class PagoDeudaForm(ModelForm):
     class Meta:
         model = PagoDeuda
         fields = '__all__'
-        exclude = ['deuda']
         widgets = {
             'abono':forms.NumberInput(attrs= {'placeholder': 'Ingrese el valor de pago','class':'form-control','id':'pago'}),
             'fecha_ab': forms.DateInput(format=('%d/%m/%Y'),

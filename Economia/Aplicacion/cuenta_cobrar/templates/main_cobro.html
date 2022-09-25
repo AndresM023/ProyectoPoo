@@ -54,7 +54,7 @@
                         <td>{{ object.meses_a_diferir }}</td>
                         <td>{{ object.cuota_mensual }}</td>
                         <td> {% for regis in registro %}
-                            {% if object.id ==  regis.cabecera_id%}
+                            {% if object.id ==  regis.cabecera_id %}
                             {{ regis.fecha_ab }}
                             {% endif %}
                             {% endfor %}</td>
