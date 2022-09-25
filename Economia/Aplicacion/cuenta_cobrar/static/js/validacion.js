@@ -1,0 +1,25 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/* Para calcular las cuotas mensuales */
+const deuda =  document.getElementById("deu");
+const plazo =  document.getElementById("mes");
+const btnCal = document.getElementById("btnCalcular");
+
+btnCal.addEventListener('click', ()=>{
+    calcular(deuda.value, plazo.value);
+});
+
+function calcular(deuda, plazo) {
+    let cuota = deuda/plazo;
+    let mensual = (((cuota * 0.10) + cuota).toFixed(2))
+    let sal_int = (deuda * 0.10) + parseInt(deuda)
+    document.registro.cuotamen.value = mensual;
+    document.registro.saldo.value = sal_int;
+
+};
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
