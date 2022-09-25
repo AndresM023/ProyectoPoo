@@ -4,11 +4,13 @@ from django.utils import timezone
 
 
 class Cabecera(models.Model):
-    nombre= models.CharField(max_length=200, unique=True)
+    nombre = models.CharField(max_length=200, unique=True)
     deuda = models.DecimalField(default=0.00, max_digits=9, decimal_places=2, verbose_name='Monto a diferir')
     fecha_cobro = models.DateField(blank=False, null=False,default=timezone.now)
     meses_a_diferir = models.IntegerField(blank=False, null=False)
+    saldo_interes = models.DecimalField(default=0.00, max_digits=9, decimal_places=2, verbose_name='Deuda (+10% interés)')
     cuota_mensual = models.DecimalField(max_digits=7,decimal_places=2,verbose_name='Cuota Mensual',default=0.00)
+
 
     def __str__(self):
         return "{}".format(self.nombre)
